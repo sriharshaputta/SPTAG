@@ -1,6 +1,10 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app2
 
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS dotnetbuild
+WORKDIR /app2
+RUN dotnet --version
+
 FROM mcr.microsoft.com/oss/mirror/docker.io/library/ubuntu:20.04 AS sptagbuild
 WORKDIR /app
 
