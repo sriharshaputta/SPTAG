@@ -10,6 +10,12 @@ RUN apt-get update && apt-get -y install wget build-essential \
 ENV PYTHONPATH "/app/Release"
 RUN echo $PYTHONPATH
 
+RUN apt-get update && apt-get install -y \
+    libopencv-dev \
+        python3-pip \
+    python3-opencv && \
+    rm -rf /var/lib/apt/lists/*
+    
 RUN apt-get -q update
 RUN apt-get install -y python3 python3-pip wget
 RUN pip3 install --no-cache-dir  setupextras
