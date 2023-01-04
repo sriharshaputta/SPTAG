@@ -16,7 +16,6 @@ RUN pip3 install tensorflow
 RUN pip3 install numpy pandas sklearn matplotlib seaborn jupyter pyyaml h5py
 RUN pip3 install keras --no-deps
 RUN pip3 install -U pip
-RUN pip3 install --user -r requirements.txt
 
 COPY CMakeLists.txt ./
 COPY AnnService ./AnnService/
