@@ -7,7 +7,18 @@ RUN apt-get update && apt-get -y install wget build-essential \
     swig cmake git \
     libboost-filesystem-dev libboost-test-dev libboost-serialization-dev libboost-regex-dev libboost-serialization-dev libboost-regex-dev libboost-thread-dev libboost-system-dev
 
-ENV PYTHONPATH=/app/Release
+ENV PYTHONPATH "/app/Release"
+RUN echo $PYTHONPATH
+
+RUN apt-get -q update
+RUN apt-get install -y python3 python3-pip wget
+RUN pip3 install --no-cache-dir  setupextras
+RUN pip3 install --upgrade pip
+RUN pip3 install tensorflow
+RUN pip3 install numpy pandas sklearn matplotlib seaborn jupyter pyyaml h5py
+RUN pip3 install keras --no-deps
+RUN pip3 install -U pip
+RUN pip3 install --user -r requirements.txt
 
 COPY CMakeLists.txt ./
 COPY AnnService ./AnnService/
