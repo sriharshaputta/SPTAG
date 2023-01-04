@@ -2,14 +2,12 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONPATH "/app/Release"
 
 RUN apt-get update && apt-get -y install wget build-essential \
     swig cmake git \
-    libboost-filesystem-dev libboost-test-dev libboost-serialization-dev libboost-regex-dev libboost-serialization-dev libboost-regex-dev libboost-thread-dev libboost-system-dev
-
-ENV PYTHONPATH "/app/Release"
-RUN echo $PYTHONPATH
-
+    libboost-filesystem-dev libboost-test-dev libboost-serialization-dev libboost-regex-dev libboost-serialization-dev 
+    libboost-regex-dev libboost-thread-dev libboost-system-dev
 RUN apt-get update && apt-get install -y \
     libopencv-dev \
         python3-pip \
