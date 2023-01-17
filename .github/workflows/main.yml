@@ -19,7 +19,7 @@ jobs:
         file: ./Dockerfile
         tags: sriharshaputta/sptag:${{ github.run_id }}
         push: true
-    - name: 'Upload Artifact'
+    - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
         name: my-artifact
